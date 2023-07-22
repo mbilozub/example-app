@@ -2,12 +2,15 @@
 
 namespace Tests\Feature\Api\Contacts;
 
+use App\Http\Controllers\Api\Contacts\IndexController;
 use App\Models\User;
 use Database\Factories\ContactFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\TestCase;
 
+#[CoversClass(IndexController::class)]
 class IndexTest extends TestCase
 {
 //    use DatabaseTransactions;

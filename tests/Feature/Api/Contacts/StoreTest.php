@@ -3,12 +3,15 @@
 namespace Tests\Feature\Api\Contacts;
 
 use App\Data\ContactData;
+use App\Http\Controllers\Api\Contacts\StoreController;
 use App\Models\User;
 use Database\Factories\ContactFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\TestCase;
 
+#[CoversClass(StoreController::class)]
 class StoreTest extends TestCase
 {
 //    use DatabaseTransactions;
