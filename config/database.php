@@ -129,21 +129,30 @@ return [
         ],
 
         'default' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', 'redis'),
-            'username' => env('REDIS_USERNAME'),
-            'password' => env('REDIS_PASSWORD'),
-            'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_DB', '0'),
+            'url' => $defaultRedisUrl = env('REDIS_URL'),
+            'host' => $defaultRedisHost = env('REDIS_HOST', 'redis'),
+            'username' => $defaultRedisUsername = env('REDIS_USERNAME'),
+            'password' => $defaultRedisPass = env('REDIS_PASSWORD'),
+            'port' => $defaultRedisPort = env('REDIS_PORT', 6379),
+            'database' => $defaultRedisDb = env('REDIS_DB', 0),
         ],
 
         'cache' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', 'redis'),
-            'username' => env('REDIS_USERNAME'),
-            'password' => env('REDIS_PASSWORD'),
-            'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_CACHE_DB', '1'),
+            'url' => env('REDIS_CACHE_URL', $defaultRedisUrl),
+            'host' => env('REDIS_CACHE_HOST', $defaultRedisHost),
+            'username' => env('REDIS_CACHE_USERNAME', $defaultRedisUsername),
+            'password' => env('REDIS_CACHE_PASSWORD', $defaultRedisPass),
+            'port' => env('REDIS_CACHE_PORT', $defaultRedisPort),
+            'database' => env('REDIS_CACHE_DB', 1),
+        ],
+
+        'queue' => [
+            'url' => env('REDIS_QUEUE_URL', $defaultRedisUrl),
+            'host' => env('REDIS_QUEUE_HOST', $defaultRedisHost),
+            'username' => env('REDIS_QUEUE_USERNAME', $defaultRedisUsername),
+            'password' => env('REDIS_QUEUE_PASSWORD', $defaultRedisPass),
+            'port' => env('REDIS_QUEUE_PORT', $defaultRedisPort),
+            'database' => env('REDIS_QUEUE_DB', 2),
         ],
 
     ],
